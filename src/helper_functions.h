@@ -241,4 +241,8 @@ inline bool read_landmark_data(std::string filename, std::vector<LandmarkObs>& o
 	return true;
 }
 
+inline double observation_pdf(double x, double y, float mu_x, float mu_y, double std_x, double std_y){
+	return 0.5/(M_PI*std_x*std_y)*std::exp(-(std::pow(x-mu_x,2)/(2*std::pow(std_x,2)) + std::pow(y-mu_y,2)/(2*std::pow(std_y,2))));
+}
+
 #endif /* HELPER_FUNCTIONS_H_ */
